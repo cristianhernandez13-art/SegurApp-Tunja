@@ -1,0 +1,92 @@
+<div class="mapa-container">
+  <div class="mapa-filters">
+    @for (opcion of [
+      { key: 'all', label: 'Todos (' + incidents.length + ')' },
+      { key: 'seguridad', label: 'Seguridad' },
+      { key: 'convivencia', label: 'Convivencia' },
+      { key: 'infraestructura', label: 'Infraestructura' },
+      { key: 'servicios', label: 'Servicios' },
+    ]; track opcion.key) {
+      <button
+        class="filter-btn"
+        [class.filter-active]="filtroTipo === opcion.key"
+        (click)="setFiltro(opcion.key)"
+      >{{ opcion.label }}</button>
+    }
+  </div>
+
+  <div class="mapa-area">
+    <div class="mapa-grid"></div>
+
+    <div class="mapa-location-tag">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>
+      </svg>
+      <div>
+        <p class="location-title">Tunja, Boyacá</p>
+        <p class="location-sub">Centro histórico</p>
+      </div>
+    </div>
+
+    @for (inc of filteredIncidents; track inc.id) {
+      <button
+        class="mapa-pin {{ pinColor(inc) }}"
+        [style.left]="pinStyle(inc).left"
+        [style.top]="pinStyle(inc).top"
+        (click)="selectIncident(inc)"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path [attr.d]="typeIcon(inc.type)"/>
+        </svg>
+        @if (inc.priority === 'urgente' && inc.status !== 'resuelto') {
+          <span class="pin-pulse"></span>
+        }
+      </button>
+    }
+
+    <div class="mapa-legend">
+      <p class="legend-title">Estado</p>
+      <div class="legend-item"><span class="legend-dot dot-urgente"></span>Urgente</div>
+      <div class="legend-item"><span class="legend-dot dot-proceso"></span>En proceso</div>
+      <div class="legend-item"><span class="legend-dot dot-resuelto"></span>Resuelto</div>
+    </div>
+
+    @if (selectedIncident) {
+      <div class="mapa-popup">
+        <button class="popup-close" (click)="closeDetail()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+          </svg>
+        </button>
+        <div class="popup-header">
+          <div class="popup-icon {{ typeColor(selectedIncident.type) }}">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path [attr.d]="typeIcon(selectedIncident.type)"/>
+            </svg>
+          </div>
+          <div class="popup-info">
+            <p class="popup-title">{{ selectedIncident.title }}</p>
+            <p class="popup-desc">{{ selectedIncident.description }}</p>
+            <div class="popup-location">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>{{ selectedIncident.location }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="popup-actions">
+          <div class="popup-badges">
+            <span class="badge badge-{{ selectedIncident.status }}">
+              {{ selectedIncident.status === 'en-proceso' ? 'En proceso' : (selectedIncident.status | titlecase) }}
+            </span>
+            @if (selectedIncident.priority === 'urgente') {
+              <span class="badge badge-urgente">Urgente</span>
+            }
+          </div>
+          <button class="popup-detail-btn" (click)="verDetalle(selectedIncident)">Ver detalles</button>
+        </div>
+      </div>
+    }
+  </div>
+</div>
