@@ -1,18 +1,22 @@
 <div class="login-container">
   <div class="login-bg"></div>
+  <div class="login-overlay"></div>
   <div class="login-content">
-    <div class="login-icon">
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
-      </svg>
+    <div class="login-card">
+      <div class="login-icon">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+        </svg>
+      </div>
+      <h1>SegurApp Tunja</h1>
+      <p class="login-subtitle">Reporta incidentes urbanos en tiempo real</p>
+      <button class="login-btn" (click)="ingresar()">
+        Ingresar
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </button>
     </div>
-    <h1>SegurApp Tunja</h1>
-    <p class="login-subtitle">Reporta incidentes urbanos en tiempo real</p>
-    <button class="login-btn" (click)="ingresar()">
-      Ingresar
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M5 12h14M12 5l7 7-7 7"/>
-      </svg>
-    </button>
+    <p class="login-footer">Tunja, Boyacá • Colombia</p>
   </div>
 </div>

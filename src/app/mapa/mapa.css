@@ -15,9 +15,9 @@
 }
 
 .filter-btn {
-  padding: 0.375rem 0.75rem;
-  border-radius: 8px;
-  font-size: 0.8125rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-size: 0.9375rem;
   font-weight: 500;
   border: none;
   cursor: pointer;
@@ -122,8 +122,8 @@
 
 .mapa-legend {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 5rem;
+  left: 1rem;
   background: rgba(255,255,255,0.9);
   backdrop-filter: blur(4px);
   border-radius: 8px;
