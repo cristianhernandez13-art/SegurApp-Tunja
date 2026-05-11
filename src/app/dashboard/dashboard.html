@@ -1,47 +1,39 @@
 <div class="dash-container">
   <div class="stats-grid">
     <div class="stat-card">
-      <div class="stat-header">
-        <div class="stat-icon stat-icon-blue">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-          </svg>
-        </div>
-        <span class="stat-label">Total</span>
+      <div class="stat-icon stat-icon-blue">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
       </div>
+      <span class="stat-label">Total</span>
       <p class="stat-value">{{ stats.total }}</p>
     </div>
     <div class="stat-card">
-      <div class="stat-header">
-        <div class="stat-icon stat-icon-orange">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-          </svg>
-        </div>
-        <span class="stat-label">Reportados</span>
+      <div class="stat-icon stat-icon-orange">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
       </div>
+      <span class="stat-label">Reportados</span>
       <p class="stat-value stat-value-orange">{{ stats.reportados }}</p>
     </div>
     <div class="stat-card">
-      <div class="stat-header">
-        <div class="stat-icon stat-icon-yellow">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
-          </svg>
-        </div>
-        <span class="stat-label">En proceso</span>
+      <div class="stat-icon stat-icon-yellow">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
+        </svg>
       </div>
+      <span class="stat-label">En proceso</span>
       <p class="stat-value stat-value-yellow">{{ stats.enProceso }}</p>
     </div>
     <div class="stat-card">
-      <div class="stat-header">
-        <div class="stat-icon stat-icon-green">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/>
-          </svg>
-        </div>
-        <span class="stat-label">Resueltos</span>
+      <div class="stat-icon stat-icon-green">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/>
+        </svg>
       </div>
+      <span class="stat-label">Resueltos</span>
       <p class="stat-value stat-value-green">{{ stats.resueltos }}</p>
     </div>
   </div>
@@ -58,7 +50,7 @@
         @for (inc of urgentes; track inc.id) {
           <button class="urgent-item" (click)="verDetalle(inc.id)">
             <div class="type-icon-sm {{ typeColor(inc.type) }}">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path [attr.d]="typeIcon(inc.type)"/>
               </svg>
             </div>

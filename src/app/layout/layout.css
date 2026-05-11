@@ -31,8 +31,12 @@
   font-size: 0.6875rem;
   font-weight: 500;
   transition: color 0.2s;
-  padding: 0.25rem 0.75rem;
+  padding: 0.25rem 0.5rem;
   position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .nav-item:hover {
@@ -41,6 +45,18 @@
 
 .nav-active {
   color: #2563eb !important;
+}
+
+.nav-active::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: #2563eb;
+  border-radius: 0 0 3px 3px;
 }
 
 .nav-report {
@@ -68,4 +84,12 @@
 
 .nav-report span {
   display: none;
+}
+
+.nav-logout {
+  color: #ef4444 !important;
+}
+
+.nav-logout:hover {
+  color: #dc2626 !important;
 }
